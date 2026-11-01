@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.idea/
+.vscode/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# MLflow local run tracking artifacts
+mlruns/
+mlflow.db
+*.db
+*.sqlite

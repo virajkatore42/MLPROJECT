@@ -1,0 +1,328 @@
+name,year,selling_price,km_driven,fuel,seller_type,transmission,owner
+Tata Nexon-EV,2021,1375000.0,16000,Electric,Individual,Automatic,First
+Tata Nexon-EV,2020,1550000.0,48400,Electric,Individual,Automatic,First
+Tata Tigor-EV,2021,1275000.0,18000,Electric,Individual,Automatic,First
+Tata Tigor-EV,2021,1250000.0,3000,Electric,Individual,Automatic,First
+Tata Nexon-EV,2022,1450000.0,5000,Electric,Individual,Automatic,First
+Tata Nexon-EV,2020,1485000.0,10000,Electric,Individual,Automatic,First
+MG ZS-EV,2020,2100000.0,38500,Electric,Individual,Automatic,First
+Tata Nexon-EV,2023,1060000.0,28108,Electric,Individual,Automatic,Second Owner
+Tata Nexon-EV,2024,1390000.0,23116,Electric,Individual,Automatic,Second Owner
+Tata Nexon-EV,2024,1190000.0,19966,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2023,1110000.0,30161,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2022,1140000.0,39538,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2023,1030000.0,24511,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2021,820000.0,49899,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2022,1050000.0,45316,Electric,Individual,Automatic,Second Owner
+Tata Nexon-EV,2022,1060000.0,37572,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2025,1550000.0,15821,Electric,Trustmark Dealer,Automatic,Second Owner
+Tata Nexon-EV,2023,1100000.0,28468,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2022,1070000.0,36458,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2021,990000.0,54037,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2023,1040000.0,35107,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2023,1120000.0,31377,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2025,1420000.0,10563,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2024,1300000.0,27234,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2021,820000.0,53183,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2023,1090000.0,35162,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2022,920000.0,42066,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2025,1590000.0,13755,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2025,1450000.0,16053,Electric,Dealer,Automatic,Second Owner
+Tata Nexon-EV,2023,1160000.0,31101,Electric,Dealer,Automatic,Second Owner
+Tata Nexon-EV,2021,930000.0,50712,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2022,1000000.0,43585,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2023,1340000.0,31418,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Nexon-EV,2023,1020000.0,28246,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2021,870000.0,48525,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Nexon-EV,2022,970000.0,43189,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2022,1120000.0,41974,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2024,1440000.0,18917,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2021,950000.0,52269,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2023,1070000.0,34271,Electric,Dealer,Automatic,First Owner
+Tata Nexon-EV,2025,1290000.0,7719,Electric,Individual,Automatic,First Owner
+Tata Nexon-EV,2025,1500000.0,10751,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2023,790000.0,33946,Electric,Individual,Automatic,Second Owner
+Tata Punch-EV,2025,1010000.0,6959,Electric,Dealer,Automatic,Second Owner
+Tata Punch-EV,2025,1200000.0,16167,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2022,620000.0,42792,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2021,590000.0,54965,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2024,870000.0,24570,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2024,1130000.0,18659,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2021,620000.0,47205,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Punch-EV,2025,1140000.0,9298,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2023,970000.0,27077,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2024,840000.0,21879,Electric,Trustmark Dealer,Automatic,Second Owner
+Tata Punch-EV,2025,1290000.0,11565,Electric,Trustmark Dealer,Automatic,Second Owner
+Tata Punch-EV,2022,750000.0,44591,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2022,850000.0,44485,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2024,1190000.0,22323,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2025,1170000.0,15053,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2024,1110000.0,25731,Electric,Dealer,Automatic,Second Owner
+Tata Punch-EV,2023,940000.0,37030,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2025,1000000.0,12025,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2023,900000.0,31861,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2021,560000.0,50128,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2022,690000.0,47461,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2021,700000.0,52449,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2024,910000.0,22053,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2023,720000.0,33547,Electric,Individual,Automatic,Second Owner
+Tata Punch-EV,2024,840000.0,19298,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2023,960000.0,37814,Electric,Dealer,Automatic,First Owner
+Tata Punch-EV,2025,1130000.0,13320,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2023,980000.0,37779,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2021,570000.0,51169,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2022,760000.0,48552,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2024,1030000.0,21550,Electric,Individual,Automatic,Second Owner
+Tata Punch-EV,2024,840000.0,20370,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2021,710000.0,54265,Electric,Individual,Automatic,First Owner
+Tata Punch-EV,2023,900000.0,32441,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Tiago-EV,2025,780000.0,10297,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2024,700000.0,22726,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2024,850000.0,23267,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2024,850000.0,24034,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Tiago-EV,2023,800000.0,29657,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2024,830000.0,26066,Electric,Individual,Automatic,Second Owner
+Tata Tiago-EV,2023,790000.0,30168,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2025,700000.0,15322,Electric,Individual,Automatic,Second Owner
+Tata Tiago-EV,2025,820000.0,18693,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2024,830000.0,25728,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2021,550000.0,49552,Electric,Individual,Automatic,Second Owner
+Tata Tiago-EV,2023,590000.0,31969,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2024,860000.0,20483,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2021,640000.0,52713,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2024,640000.0,19675,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2023,790000.0,36760,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2021,460000.0,49611,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2024,790000.0,21831,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Tiago-EV,2022,720000.0,40798,Electric,Individual,Automatic,Second Owner
+Tata Tiago-EV,2021,620000.0,53601,Electric,Individual,Automatic,Second Owner
+Tata Tiago-EV,2021,540000.0,53657,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2023,720000.0,32190,Electric,Dealer,Automatic,Second Owner
+Tata Tiago-EV,2021,560000.0,51611,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2023,650000.0,35417,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2026,1020000.0,1200,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2025,940000.0,13268,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Tiago-EV,2024,870000.0,24450,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2023,770000.0,31536,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Tiago-EV,2023,780000.0,33193,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2023,630000.0,31697,Electric,Individual,Automatic,Second Owner
+Tata Tiago-EV,2024,890000.0,27306,Electric,Dealer,Automatic,First Owner
+Tata Tiago-EV,2023,590000.0,33093,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Tiago-EV,2022,580000.0,45711,Electric,Individual,Automatic,First Owner
+Tata Tiago-EV,2023,760000.0,37394,Electric,Individual,Automatic,Second Owner
+Tata Tiago-EV,2023,660000.0,35593,Electric,Individual,Automatic,First Owner
+Tata Tigor-EV,2024,990000.0,22581,Electric,Dealer,Automatic,First Owner
+Tata Tigor-EV,2022,780000.0,35941,Electric,Trustmark Dealer,Automatic,First Owner
+Tata Tigor-EV,2023,920000.0,37055,Electric,Individual,Automatic,First Owner
+Tata Tigor-EV,2025,1020000.0,11948,Electric,Individual,Automatic,Second Owner
+Tata Tigor-EV,2023,850000.0,34787,Electric,Dealer,Automatic,First Owner
+Tata Tigor-EV,2021,670000.0,48145,Electric,Dealer,Automatic,First Owner
+Tata Tigor-EV,2024,910000.0,23706,Electric,Individual,Automatic,First Owner
+Tata Tigor-EV,2022,730000.0,39145,Electric,Individual,Automatic,First Owner
+Tata Tigor-EV,2022,760000.0,40043,Electric,Individual,Automatic,First Owner
+Tata Tigor-EV,2021,630000.0,53801,Electric,Dealer,Automatic,Second Owner
+Tata Tigor-EV,2021,660000.0,56216,Electric,Dealer,Automatic,First Owner
+Tata Tigor-EV,2022,780000.0,40084,Electric,Dealer,Automatic,First Owner
+Tata Tigor-EV,2023,920000.0,27701,Electric,Individual,Automatic,First Owner
+Tata Tigor-EV,2024,980000.0,22100,Electric,Individual,Automatic,First Owner
+Tata Tigor-EV,2023,830000.0,35390,Electric,Individual,Automatic,First Owner
+Tata Tigor-EV,2021,670000.0,48285,Electric,Individual,Automatic,Second Owner
+Tata Tigor-EV,2023,910000.0,29709,Electric,Dealer,Automatic,First Owner
+Tata Tigor-EV,2021,710000.0,60310,Electric,Individual,Automatic,First Owner
+Tata Tigor-EV,2022,760000.0,45550,Electric,Dealer,Automatic,First Owner
+Tata Tigor-EV,2023,840000.0,32096,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2022,1130000.0,42445,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2022,1370000.0,33240,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2025,1800000.0,14396,Electric,Dealer,Automatic,First Owner
+Tata Curvv-EV,2022,1240000.0,43849,Electric,Dealer,Automatic,First Owner
+Tata Curvv-EV,2024,1410000.0,22726,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2023,1410000.0,30394,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2022,1220000.0,40926,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2023,1430000.0,29893,Electric,Dealer,Automatic,First Owner
+Tata Curvv-EV,2023,1340000.0,34660,Electric,Individual,Automatic,Second Owner
+Tata Curvv-EV,2024,1410000.0,22594,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2023,1480000.0,32312,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2022,1310000.0,40885,Electric,Dealer,Automatic,First Owner
+Tata Curvv-EV,2023,1490000.0,30883,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2023,1310000.0,29632,Electric,Dealer,Automatic,First Owner
+Tata Curvv-EV,2022,1340000.0,34193,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2025,1840000.0,8903,Electric,Dealer,Automatic,First Owner
+Tata Curvv-EV,2022,1300000.0,43004,Electric,Dealer,Automatic,First Owner
+Tata Curvv-EV,2025,1600000.0,10294,Electric,Individual,Automatic,First Owner
+Tata Curvv-EV,2021,1090000.0,53413,Electric,Dealer,Automatic,Second Owner
+Tata Curvv-EV,2023,1260000.0,36504,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2024,1780000.0,20443,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2022,1550000.0,38295,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2023,1750000.0,30204,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2023,1710000.0,31290,Electric,Trustmark Dealer,Automatic,First Owner
+MG ZS-EV,2024,1920000.0,22164,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2023,1660000.0,27304,Electric,Trustmark Dealer,Automatic,Second Owner
+MG ZS-EV,2023,1360000.0,38603,Electric,Trustmark Dealer,Automatic,First Owner
+MG ZS-EV,2022,1330000.0,50885,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2024,1460000.0,23833,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2023,1480000.0,31195,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2022,1360000.0,44198,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2023,1480000.0,34815,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2021,1270000.0,51449,Electric,Individual,Automatic,Second Owner
+MG ZS-EV,2022,1580000.0,39203,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2021,1300000.0,51424,Electric,Individual,Automatic,Second Owner
+MG ZS-EV,2022,1190000.0,50994,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2023,1520000.0,28125,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2022,1560000.0,43014,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2024,1670000.0,21108,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2024,1570000.0,21687,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2021,1070000.0,52104,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2024,1580000.0,20772,Electric,Dealer,Automatic,Second Owner
+MG ZS-EV,2024,1660000.0,21197,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2022,1540000.0,36155,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2022,1320000.0,48176,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2024,1670000.0,26363,Electric,Individual,Automatic,Second Owner
+MG ZS-EV,2024,1540000.0,14405,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2025,1620000.0,10824,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2024,1590000.0,26711,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2026,1910000.0,2490,Electric,Individual,Automatic,Second Owner
+MG ZS-EV,2022,1410000.0,42352,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2024,1470000.0,20357,Electric,Individual,Automatic,Second Owner
+MG ZS-EV,2025,1930000.0,13844,Electric,Dealer,Automatic,First Owner
+MG ZS-EV,2022,1330000.0,41446,Electric,Individual,Automatic,First Owner
+MG ZS-EV,2022,1470000.0,44823,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2022,490000.0,36665,Electric,Dealer,Automatic,First Owner
+MG Comet-EV,2023,570000.0,29205,Electric,Dealer,Automatic,Second Owner
+MG Comet-EV,2024,550000.0,24126,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2023,620000.0,26682,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2024,620000.0,28912,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2024,670000.0,21834,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2023,580000.0,27382,Electric,Dealer,Automatic,First Owner
+MG Comet-EV,2024,670000.0,21208,Electric,Dealer,Automatic,First Owner
+MG Comet-EV,2022,590000.0,36657,Electric,Trustmark Dealer,Automatic,First Owner
+MG Comet-EV,2024,720000.0,21797,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2025,790000.0,13563,Electric,Trustmark Dealer,Automatic,First Owner
+MG Comet-EV,2025,770000.0,11253,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2021,400000.0,47081,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2023,610000.0,33753,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2023,600000.0,29722,Electric,Dealer,Automatic,First Owner
+MG Comet-EV,2022,440000.0,45652,Electric,Dealer,Automatic,First Owner
+MG Comet-EV,2025,760000.0,14496,Electric,Trustmark Dealer,Automatic,First Owner
+MG Comet-EV,2024,620000.0,22164,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2025,750000.0,6113,Electric,Individual,Automatic,First Owner
+MG Comet-EV,2023,540000.0,25844,Electric,Individual,Automatic,First Owner
+MG Windsor-EV,2021,830000.0,45232,Electric,Individual,Automatic,Second Owner
+MG Windsor-EV,2024,1060000.0,17774,Electric,Individual,Automatic,Second Owner
+MG Windsor-EV,2025,1170000.0,20084,Electric,Trustmark Dealer,Automatic,First Owner
+MG Windsor-EV,2025,1280000.0,9676,Electric,Dealer,Automatic,First Owner
+MG Windsor-EV,2022,870000.0,40188,Electric,Dealer,Automatic,First Owner
+MG Windsor-EV,2021,870000.0,49903,Electric,Dealer,Automatic,Second Owner
+MG Windsor-EV,2026,1410000.0,5693,Electric,Dealer,Automatic,First Owner
+MG Windsor-EV,2024,1080000.0,17892,Electric,Individual,Automatic,First Owner
+MG Windsor-EV,2023,1090000.0,29059,Electric,Individual,Automatic,First Owner
+MG Windsor-EV,2025,1340000.0,12576,Electric,Dealer,Automatic,First Owner
+MG Windsor-EV,2024,1120000.0,19023,Electric,Individual,Automatic,First Owner
+MG Windsor-EV,2024,1130000.0,22366,Electric,Individual,Automatic,First Owner
+MG Windsor-EV,2024,1160000.0,9817,Electric,Dealer,Automatic,First Owner
+MG Windsor-EV,2024,1150000.0,18954,Electric,Individual,Automatic,Second Owner
+MG Windsor-EV,2024,1200000.0,25265,Electric,Dealer,Automatic,First Owner
+MG Windsor-EV,2024,1170000.0,23475,Electric,Dealer,Automatic,First Owner
+MG Windsor-EV,2022,950000.0,40703,Electric,Individual,Automatic,First Owner
+MG Windsor-EV,2024,1140000.0,19082,Electric,Individual,Automatic,First Owner
+MG Windsor-EV,2024,1090000.0,22086,Electric,Dealer,Automatic,First Owner
+MG Windsor-EV,2024,1060000.0,22314,Electric,Dealer,Automatic,First Owner
+Mahindra XUV400,2025,1600000.0,16231,Electric,Individual,Automatic,Second Owner
+Mahindra XUV400,2024,1220000.0,16954,Electric,Individual,Automatic,First Owner
+Mahindra XUV400,2021,970000.0,45665,Electric,Individual,Automatic,Second Owner
+Mahindra XUV400,2026,1750000.0,10377,Electric,Dealer,Automatic,First Owner
+Mahindra XUV400,2024,1410000.0,21541,Electric,Dealer,Automatic,First Owner
+Mahindra XUV400,2022,1190000.0,34876,Electric,Individual,Automatic,First Owner
+Mahindra XUV400,2022,1010000.0,44270,Electric,Individual,Automatic,First Owner
+Mahindra XUV400,2024,1270000.0,25455,Electric,Trustmark Dealer,Automatic,First Owner
+Mahindra XUV400,2023,1240000.0,31598,Electric,Individual,Automatic,First Owner
+Mahindra XUV400,2026,1560000.0,9216,Electric,Dealer,Automatic,First Owner
+Mahindra XUV400,2022,1040000.0,42259,Electric,Dealer,Automatic,First Owner
+Mahindra XUV400,2025,1370000.0,11197,Electric,Dealer,Automatic,First Owner
+Mahindra XUV400,2024,1370000.0,23609,Electric,Individual,Automatic,First Owner
+Mahindra XUV400,2025,1500000.0,14126,Electric,Dealer,Automatic,First Owner
+Mahindra XUV400,2022,1060000.0,43312,Electric,Individual,Automatic,First Owner
+Mahindra XUV400,2021,960000.0,49349,Electric,Individual,Automatic,First Owner
+Mahindra XUV400,2023,1100000.0,31030,Electric,Individual,Automatic,First Owner
+Mahindra XUV400,2024,1280000.0,21911,Electric,Dealer,Automatic,Second Owner
+Mahindra XUV400,2024,1220000.0,21915,Electric,Individual,Automatic,Second Owner
+Mahindra XUV400,2022,1080000.0,40001,Electric,Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2023,3250000.0,28932,Electric,Individual,Automatic,First Owner
+Hyundai Ioniq-5,2023,3210000.0,32131,Electric,Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2024,3560000.0,20272,Electric,Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2021,2610000.0,50442,Electric,Individual,Automatic,First Owner
+Hyundai Ioniq-5,2024,3660000.0,23376,Electric,Individual,Automatic,First Owner
+Hyundai Ioniq-5,2021,2590000.0,54385,Electric,Individual,Automatic,First Owner
+Hyundai Ioniq-5,2023,3290000.0,33404,Electric,Individual,Automatic,First Owner
+Hyundai Ioniq-5,2022,2850000.0,49638,Electric,Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2026,4370000.0,3389,Electric,Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2023,3300000.0,30147,Electric,Individual,Automatic,Second Owner
+Hyundai Ioniq-5,2026,4350000.0,3052,Electric,Individual,Automatic,First Owner
+Hyundai Ioniq-5,2022,2900000.0,43974,Electric,Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2024,3610000.0,15474,Electric,Trustmark Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2025,3990000.0,8844,Electric,Individual,Automatic,First Owner
+Hyundai Ioniq-5,2023,3290000.0,26284,Electric,Trustmark Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2024,3640000.0,19995,Electric,Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2024,3610000.0,23133,Electric,Individual,Automatic,Second Owner
+Hyundai Ioniq-5,2023,3270000.0,30979,Electric,Individual,Automatic,First Owner
+Hyundai Ioniq-5,2022,2880000.0,43309,Electric,Dealer,Automatic,First Owner
+Hyundai Ioniq-5,2024,3560000.0,21696,Electric,Trustmark Dealer,Automatic,First Owner
+BYD Atto-3,2022,2150000.0,34666,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2024,2620000.0,22889,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2021,1810000.0,54964,Electric,Dealer,Automatic,First Owner
+BYD Atto-3,2023,2390000.0,36278,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2022,2150000.0,42169,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2023,2420000.0,29593,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2021,1880000.0,52487,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2023,2360000.0,33583,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2023,2370000.0,28715,Electric,Trustmark Dealer,Automatic,First Owner
+BYD Atto-3,2024,2560000.0,24254,Electric,Dealer,Automatic,First Owner
+BYD Atto-3,2024,2600000.0,21891,Electric,Dealer,Automatic,First Owner
+BYD Atto-3,2021,1880000.0,59011,Electric,Dealer,Automatic,First Owner
+BYD Atto-3,2022,2110000.0,38186,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2026,2940000.0,12708,Electric,Trustmark Dealer,Automatic,First Owner
+BYD Atto-3,2025,2890000.0,13192,Electric,Dealer,Automatic,First Owner
+BYD Atto-3,2023,2350000.0,37023,Electric,Dealer,Automatic,First Owner
+BYD Atto-3,2024,2480000.0,26514,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2023,2300000.0,31085,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2023,2310000.0,26565,Electric,Individual,Automatic,First Owner
+BYD Atto-3,2024,2620000.0,20937,Electric,Dealer,Automatic,First Owner
+BYD Seal,2023,3240000.0,32206,Electric,Individual,Automatic,First Owner
+BYD Seal,2023,3170000.0,35941,Electric,Dealer,Automatic,First Owner
+BYD Seal,2024,3810000.0,24379,Electric,Trustmark Dealer,Automatic,First Owner
+BYD Seal,2022,2540000.0,44014,Electric,Dealer,Automatic,Second Owner
+BYD Seal,2022,2610000.0,41338,Electric,Individual,Automatic,First Owner
+BYD Seal,2022,2760000.0,43935,Electric,Dealer,Automatic,First Owner
+BYD Seal,2023,3060000.0,37300,Electric,Individual,Automatic,First Owner
+BYD Seal,2022,3040000.0,44705,Electric,Individual,Automatic,First Owner
+BYD Seal,2024,3390000.0,22561,Electric,Trustmark Dealer,Automatic,First Owner
+BYD Seal,2024,3670000.0,18719,Electric,Individual,Automatic,First Owner
+BYD Seal,2025,4350000.0,16221,Electric,Individual,Automatic,First Owner
+BYD Seal,2024,3530000.0,23343,Electric,Dealer,Automatic,Second Owner
+BYD Seal,2023,3070000.0,34615,Electric,Dealer,Automatic,First Owner
+BYD Seal,2024,3250000.0,19547,Electric,Dealer,Automatic,First Owner
+BYD Seal,2023,3560000.0,33835,Electric,Individual,Automatic,First Owner
+BYD Seal,2021,2660000.0,49427,Electric,Dealer,Automatic,First Owner
+BYD Seal,2022,2890000.0,47108,Electric,Trustmark Dealer,Automatic,First Owner
+BYD Seal,2024,3540000.0,16101,Electric,Individual,Automatic,First Owner
+BYD Seal,2024,3680000.0,23059,Electric,Individual,Automatic,First Owner
+BYD Seal,2021,2820000.0,50130,Electric,Individual,Automatic,First Owner
+Kia EV6,2022,3940000.0,39947,Electric,Individual,Automatic,First Owner
+Kia EV6,2022,3950000.0,41308,Electric,Dealer,Automatic,First Owner
+Kia EV6,2023,4480000.0,27895,Electric,Trustmark Dealer,Automatic,First Owner
+Kia EV6,2023,4500000.0,27682,Electric,Individual,Automatic,First Owner
+Kia EV6,2023,4430000.0,28532,Electric,Individual,Automatic,First Owner
+Kia EV6,2024,4820000.0,24202,Electric,Dealer,Automatic,First Owner
+Kia EV6,2025,5220000.0,10131,Electric,Trustmark Dealer,Automatic,Second Owner
+Kia EV6,2023,4540000.0,27074,Electric,Individual,Automatic,First Owner
+Kia EV6,2021,3550000.0,50153,Electric,Dealer,Automatic,First Owner
+Kia EV6,2021,3400000.0,53265,Electric,Individual,Automatic,First Owner
+Kia EV6,2021,3400000.0,52305,Electric,Individual,Automatic,First Owner
+Kia EV6,2024,4880000.0,24478,Electric,Trustmark Dealer,Automatic,First Owner
+Kia EV6,2026,6020000.0,5653,Electric,Individual,Automatic,First Owner
+Kia EV6,2023,4530000.0,33623,Electric,Dealer,Automatic,First Owner
+Kia EV6,2024,4850000.0,20225,Electric,Individual,Automatic,First Owner
+Kia EV6,2023,4570000.0,31172,Electric,Dealer,Automatic,First Owner
+Kia EV6,2022,3980000.0,50627,Electric,Individual,Automatic,First Owner
+Kia EV6,2023,4290000.0,30949,Electric,Individual,Automatic,First Owner
+Kia EV6,2021,3430000.0,53777,Electric,Individual,Automatic,First Owner
+Kia EV6,2023,4270000.0,32188,Electric,Dealer,Automatic,First Owner

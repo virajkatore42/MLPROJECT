@@ -1,0 +1,65 @@
+{
+  "mae_inr": 106541.4251562637,
+  "median_ae_inr": 69468.34938766214,
+  "rmse_inr": 220483.913741008,
+  "r2": 0.9187695345792286,
+  "mape_pct": 15.024652557170734,
+  "accuracy": 0.8076490438695163,
+  "precision_macro": 0.8383749454604861,
+  "recall_macro": 0.786500988370579,
+  "f1_macro": 0.8070545204690924,
+  "confusion_matrix": [
+    [
+      234,
+      56,
+      0,
+      0
+    ],
+    [
+      40,
+      618,
+      77,
+      0
+    ],
+    [
+      1,
+      93,
+      438,
+      9
+    ],
+    [
+      0,
+      4,
+      62,
+      146
+    ]
+  ],
+  "bracket_labels": [
+    "Budget",
+    "Mid-Range",
+    "Premium",
+    "Luxury"
+  ],
+  "train_rows": 7110,
+  "test_rows": 1778,
+  "target": "selling_price",
+  "classification_target": "price_bracket",
+  "features": [
+    "year",
+    "km_driven",
+    "vehicle_age",
+    "km_per_year",
+    "is_luxury",
+    "brand",
+    "car_model",
+    "fuel",
+    "seller_type",
+    "transmission",
+    "owner"
+  ],
+  "data_lineage_hash": "8940998832d7eff9",
+  "trained_timestamp": "2026-11-01T12:28:29.113874",
+  "model_version": "2.1.0-ct-20261101",
+  "champion_status": "PROMOTED_REPLACING_PREVIOUS",
+  "sdg_goal": "SDG-9 Industry, Innovation and Infrastructure"
+}

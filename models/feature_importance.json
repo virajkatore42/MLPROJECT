@@ -1,0 +1,47 @@
+[
+  {
+    "feature": "vehicle_age",
+    "importance_pct": 28.5,
+    "category": "Temporal"
+  },
+  {
+    "feature": "brand",
+    "importance_pct": 24.2,
+    "category": "Market & OEM"
+  },
+  {
+    "feature": "km_driven",
+    "importance_pct": 16.8,
+    "category": "Usage"
+  },
+  {
+    "feature": "km_per_year",
+    "importance_pct": 11.4,
+    "category": "Usage Intensity"
+  },
+  {
+    "feature": "transmission",
+    "importance_pct": 7.9,
+    "category": "Mechanical"
+  },
+  {
+    "feature": "fuel",
+    "importance_pct": 6.1,
+    "category": "Powertrain"
+  },
+  {
+    "feature": "car_model",
+    "importance_pct": 3.1,
+    "category": "Model Variant"
+  },
+  {
+    "feature": "owner",
+    "importance_pct": 1.5,
+    "category": "Ownership"
+  },
+  {
+    "feature": "seller_type",
+    "importance_pct": 0.5,
+    "category": "Channel"
+  }
+]

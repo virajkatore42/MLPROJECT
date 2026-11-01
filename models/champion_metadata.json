@@ -1,0 +1,11 @@
+{
+  "model_version": "2.1.0-ct-20261101",
+  "governance_status": "PROMOTED_REPLACING_PREVIOUS",
+  "promoted_at": "2026-11-01T12:28:29.097616",
+  "mae_inr": 106541.4251562637,
+  "r2_score": 0.9187695345792286,
+  "accuracy": 0.8076490438695163,
+  "previous_mae_inr": 106804.1438859285,
+  "previous_r2_score": 0.9247253095865182,
+  "sdg_impact": "SDG-9 Fair Used-Car Valuation & Transparent Marketplace"
+}

@@ -1,0 +1,29 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# Deploy: connect repo → New Blueprint → select render.yaml
+
+services:
+  - type: web
+    name: used-car-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHONPATH
+        value: /app
+
+  - type: web
+    name: used-car-ui
+    runtime: docker
+    dockerfilePath: ./Dockerfile.streamlit
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: API_URL
+        fromService:
+          type: web
+          name: used-car-api
+          property: hostport
+      - key: PYTHONPATH
+        value: /app

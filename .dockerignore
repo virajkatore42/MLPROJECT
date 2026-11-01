@@ -1,0 +1,8 @@
+.venv
+venv
+__pycache__
+.git
+.idea
+.vscode
+# Do not ignore data/raw — API and Streamlit COPY cardekho.csv
+*.md

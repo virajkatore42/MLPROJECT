@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  train-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-docker.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-docker.txt
+          pip install pytest httpx streamlit
+
+      - name: Ingest & synthesize multi-source datasets
+        run: |
+          python scripts/download_data.py
+          python scripts/build_ev_dataset.py
+          python scripts/build_recent_market_dataset.py
+
+      - name: Train model & execute continuous training pipeline
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m src.train
+
+      - name: Run test suite & verify quality gates
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: pytest tests/ -v
+
+      - name: Upload model artifacts & MLOps governance metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-artifacts
+          path: |
+            models/price_model.joblib
+            models/classifier_model.joblib
+            models/metrics.json
+            models/drift_baseline.json
+            models/feature_importance.json
+            models/champion_metadata.json
