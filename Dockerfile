@@ -8,7 +8,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 COPY requirements-docker.txt .
 RUN pip install --no-cache-dir -r requirements-docker.txt
 
-COPY data/raw/cardekho.csv data/raw/cardekho.csv
+COPY data/ data/
 COPY models/ models/
 COPY src/ src/
 COPY app/ app/

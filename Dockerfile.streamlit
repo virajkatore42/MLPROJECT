@@ -10,7 +10,8 @@ COPY requirements-docker.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt streamlit==1.41.1 httpx==0.28.1
 
 COPY streamlit_app.py streamlit_app.py
-COPY data/raw/cardekho.csv data/raw/cardekho.csv
+COPY data/ data/
+COPY models/ models/
 COPY src/ src/
 
 EXPOSE 8501
