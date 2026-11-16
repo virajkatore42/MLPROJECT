@@ -46,17 +46,33 @@ class PricePrediction(BaseModel):
     predicted_bracket: str = "Mid-Range"
     negotiation_tiers: NegotiationTiers | None = None
     depreciation_forecast: list[DepreciationPoint] | None = None
-    model_version: str = "2.1.0-ct-ensemble"
+    model_version: str = "2.2.0-ct-ensemble"
     model_type: str = "HistGradientBoosting_LogTarget"
     r2_score: float | None = None
     mae_inr: float | None = None
+    inference_latency_ms: float = 0.0
+
+
+class BatchPredictionItem(BaseModel):
+    index: int
+    predicted_price_inr: float
+    predicted_price_lakh: float
+    predicted_bracket: str
+
+
+class BatchPredictionResponse(BaseModel):
+    total_items: int
+    batch_latency_ms: float
+    avg_item_latency_ms: float
+    model_version: str
+    predictions: list[BatchPredictionItem]
 
 
 class HealthResponse(BaseModel):
     status: str
     model_loaded: bool
     classifier_loaded: bool
-    version: str = "2.1.0"
+    version: str = "2.2.0"
     reference_year: int = 2026
 
 
@@ -75,6 +91,9 @@ class MetricsResponse(BaseModel):
     train_rows: int | None = None
     test_rows: int | None = None
     data_lineage_hash: str | None = None
+    data_validation_status: str | None = None
+    compliant_slices: int | None = None
+    total_slices: int | None = None
     model_version: str | None = None
     champion_status: str | None = None
     sdg_goal: str = "SDG-9 Industry, Innovation and Infrastructure"
@@ -87,7 +106,7 @@ class FeatureImportanceItem(BaseModel):
 
 
 class FeatureImportanceResponse(BaseModel):
-    model_version: str = "2.1.0"
+    model_version: str = "2.2.0"
     features: list[FeatureImportanceItem]
 
 
@@ -99,6 +118,14 @@ class DriftMetricDetail(BaseModel):
     baseline_mean: float
 
 
+class PredictionDriftDetail(BaseModel):
+    psi: float
+    ks_statistic: float
+    status: str
+    live_mean_prediction: float
+    baseline_mean_prediction: float
+
+
 class DriftReportResponse(BaseModel):
     overall_status: str
     drift_detected: bool
@@ -107,6 +134,7 @@ class DriftReportResponse(BaseModel):
     average_psi: float | None = None
     live_samples: int
     feature_metrics: dict[str, DriftMetricDetail]
+    prediction_drift: PredictionDriftDetail | None = None
 
 
 class ChampionChallengerResponse(BaseModel):
@@ -119,3 +147,56 @@ class ChampionChallengerResponse(BaseModel):
     previous_mae_inr: float | None = None
     previous_r2_score: float | None = None
     sdg_impact: str
+
+
+class DataValidationCheck(BaseModel):
+    check: str
+    category: str
+    status: str
+    details: str
+    passed: bool
+
+
+class DataValidationResponse(BaseModel):
+    status: str
+    evaluated_at: str
+    dataset_rows: int
+    dataset_lineage_hash: str
+    total_checks: int
+    passed_checks: int
+    failed_checks: int
+    pass_rate_pct: float
+    checks: list[DataValidationCheck]
+
+
+class SliceMetricItem(BaseModel):
+    dimension: str
+    slice_value: str
+    sample_count: int
+    representation_pct: float
+    mae_inr: float
+    rmse_inr: float
+    mape_pct: float
+    r2_score: float
+    sla_status: str
+
+
+class SliceMetricsResponse(BaseModel):
+    evaluated_at: str
+    total_test_samples: int
+    total_slices_evaluated: int
+    compliant_slices: int
+    flagged_slices: int
+    slices: list[SliceMetricItem]
+
+
+class TelemetryResponse(BaseModel):
+    uptime_seconds: float
+    total_predictions_served: int
+    latency_p50_ms: float
+    latency_p95_ms: float
+    latency_p99_ms: float
+    avg_latency_ms: float
+    avg_predicted_price_inr: float
+    recent_events: list[dict[str, Any]]
+    status: str

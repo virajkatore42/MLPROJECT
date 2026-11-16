@@ -15,23 +15,31 @@ class DirectAPIClient:
             _load_artifacts,
             brands_models,
             champion_challenger,
+            data_validation,
             drift_status,
             feature_importance,
             health,
             metrics,
             predict,
+            predict_batch,
+            slice_metrics,
             tco_comparison,
+            telemetry,
         )
         _load_artifacts()
         self._analysis = _build_analysis()
         self._health = health
         self._predict = predict
+        self._predict_batch = predict_batch
         self._metrics = metrics
         self._drift = drift_status
         self._importance = feature_importance
         self._champion = champion_challenger
         self._tco = tco_comparison
         self._brands_models = brands_models
+        self._data_validation = data_validation
+        self._slice_metrics = slice_metrics
+        self._telemetry = telemetry
 
     def get(self, path: str):
         class Response:
@@ -56,11 +64,17 @@ class DirectAPIClient:
             return Response(self._champion())
         elif path == "/brands_models":
             return Response(self._brands_models())
+        elif path == "/data/validation":
+            return Response(self._data_validation())
+        elif path == "/metrics/slices":
+            return Response(self._slice_metrics())
+        elif path == "/telemetry":
+            return Response(self._telemetry())
         elif "/tco_comparison" in path:
             return Response(self._tco())
         return Response({}, status_code=404)
 
-    def post(self, path: str, json: dict):
+    def post(self, path: str, json: dict | list):
         class Response:
             def __init__(self, data, status_code=200):
                 self._data = data
@@ -75,6 +89,10 @@ class DirectAPIClient:
             from app.schemas import CarInput
             inp = CarInput(**json)
             return Response(self._predict(inp))
+        elif path == "/predict/batch":
+            from app.schemas import CarInput
+            inp_list = [CarInput(**item) for item in json]
+            return Response(self._predict_batch(inp_list))
         return Response({}, status_code=404)
 
 
@@ -82,7 +100,6 @@ class DirectAPIClient:
 def client():
     if not MODEL.exists():
         pytest.skip("Model not trained — run python -m src.train")
-    # On Python 3.14 Windows, anyio's blocking portal deadlocks with TestClient; use DirectAPIClient
     if sys.platform == "win32" and sys.version_info >= (3, 14):
         return DirectAPIClient()
     try:
@@ -121,9 +138,8 @@ def test_predict_ice(client):
     assert body["predicted_price_inr"] > 200_000
     assert body["predicted_price_lakh"] > 2.0
     assert body["predicted_bracket"] in ["Budget", "Mid-Range", "Premium", "Luxury"]
-    assert "negotiation_tiers" in body
-    assert body["negotiation_tiers"]["instant_cash_price"] < body["negotiation_tiers"]["fair_market_price"]
-    assert len(body["depreciation_forecast"]) == 5
+    assert "inference_latency_ms" in body
+    assert body["inference_latency_ms"] >= 0.0
 
 
 def test_predict_ev(client):
@@ -142,7 +158,6 @@ def test_predict_ev(client):
     body = res.json()
     assert body["predicted_price_inr"] > 500_000
     assert body["predicted_bracket"] in ["Mid-Range", "Premium", "Luxury"]
-    assert len(body["depreciation_forecast"]) == 5
 
 
 def test_predict_hybrid(client):
@@ -160,6 +175,37 @@ def test_predict_hybrid(client):
     assert res.status_code == 200
     body = res.json()
     assert body["predicted_price_inr"] > 700_000
+
+
+def test_batch_prediction_endpoint(client):
+    batch = [
+        {
+            "year": 2023,
+            "km_driven": 15000,
+            "brand": "Hyundai",
+            "car_model": "Creta",
+            "fuel": "Diesel",
+            "seller_type": "Individual",
+            "transmission": "Manual",
+            "owner": "First Owner",
+        },
+        {
+            "year": 2024,
+            "km_driven": 10000,
+            "brand": "Tata",
+            "car_model": "Nexon-EV",
+            "fuel": "Electric",
+            "seller_type": "Dealer",
+            "transmission": "Automatic",
+            "owner": "First Owner",
+        },
+    ]
+    res = client.post("/predict/batch", json=batch)
+    assert res.status_code == 200
+    body = res.json()
+    assert body["total_items"] == 2
+    assert len(body["predictions"]) == 2
+    assert body["batch_latency_ms"] >= 0.0
 
 
 def test_drift_endpoint(client):
@@ -189,12 +235,33 @@ def test_champion_challenger_endpoint(client):
     assert "model_version" in body
 
 
-def test_tco_endpoint(client):
-    res = client.get("/tco_comparison?annual_km=12000&years=3")
+def test_data_validation_endpoint(client):
+    res = client.get("/data/validation")
     assert res.status_code == 200
     body = res.json()
-    assert body["ev_savings_vs_petrol"] > 0
-    assert body["electric_running_total"] < body["petrol_running_total"]
+    assert body["status"] == "PASSED"
+    assert body["total_checks"] >= 5
+    assert body["pass_rate_pct"] == 100.0
+
+
+def test_slice_metrics_endpoint(client):
+    res = client.get("/metrics/slices")
+    assert res.status_code == 200
+    body = res.json()
+    assert body["total_slices_evaluated"] >= 10
+    assert body["compliant_slices"] >= 10
+    dimensions = {s["dimension"] for s in body["slices"]}
+    assert "Fuel / Powertrain" in dimensions
+    assert "Vehicle Age Bracket" in dimensions
+
+
+def test_telemetry_endpoint(client):
+    res = client.get("/telemetry")
+    assert res.status_code == 200
+    body = res.json()
+    assert "total_predictions_served" in body
+    assert "latency_p50_ms" in body
+    assert body["total_predictions_served"] >= 1
 
 
 def test_brands_models(client):

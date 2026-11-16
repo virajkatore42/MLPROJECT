@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from src.train import main as run_train
+from scripts.run_pipeline import run_pipeline
 
 
 def main():
@@ -23,11 +23,11 @@ def main():
     print(f"  Triggered at: {datetime.now().isoformat()}")
     print("=" * 70)
 
-    start_time = time.time()
     try:
-        run_train()
-        duration = round(time.time() - start_time, 2)
-        print(f"\n[CT Success] Continuous retraining completed in {duration} seconds.")
+        manifest = run_pipeline()
+        status = manifest.get("overall_status", "UNKNOWN")
+        dur = manifest.get("total_execution_seconds", 0)
+        print(f"\n[CT Result] Pipeline Status: {status} in {dur} seconds.")
     except Exception as e:
         print(f"\n[CT Failure] Retraining pipeline encountered error: {e}")
         sys.exit(1)

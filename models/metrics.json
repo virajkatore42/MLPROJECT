@@ -1,37 +1,37 @@
 {
-  "mae_inr": 106541.4251562637,
-  "median_ae_inr": 69468.34938766214,
-  "rmse_inr": 220483.913741008,
-  "r2": 0.9187695345792286,
-  "mape_pct": 15.024652557170734,
-  "accuracy": 0.8076490438695163,
-  "precision_macro": 0.8383749454604861,
-  "recall_macro": 0.786500988370579,
-  "f1_macro": 0.8070545204690924,
+  "mae_inr": 106114.60711275238,
+  "median_ae_inr": 69901.96740434691,
+  "rmse_inr": 217600.27221392634,
+  "r2": 0.9208804166459321,
+  "mape_pct": 15.042279561635203,
+  "accuracy": 0.8143982002249719,
+  "precision_macro": 0.8452231439501935,
+  "recall_macro": 0.7916901694238885,
+  "f1_macro": 0.8134463039738238,
   "confusion_matrix": [
     [
-      234,
-      56,
+      232,
+      58,
       0,
       0
     ],
     [
-      40,
-      618,
-      77,
+      36,
+      632,
+      67,
       0
     ],
     [
       1,
-      93,
-      438,
+      96,
+      435,
       9
     ],
     [
       0,
       4,
-      62,
-      146
+      59,
+      149
     ]
   ],
   "bracket_labels": [
@@ -57,9 +57,12 @@
     "transmission",
     "owner"
   ],
-  "data_lineage_hash": "8940998832d7eff9",
-  "trained_timestamp": "2026-11-01T12:28:29.113874",
-  "model_version": "2.1.0-ct-20261101",
+  "data_lineage_hash": "5babb492e291db9e",
+  "data_validation_status": "PASSED",
+  "compliant_slices": 17,
+  "total_slices": 18,
+  "trained_timestamp": "2026-11-16T20:45:30.206150",
+  "model_version": "2.2.0-ct-20261116",
   "champion_status": "PROMOTED_REPLACING_PREVIOUS",
   "sdg_goal": "SDG-9 Industry, Innovation and Infrastructure"
 }

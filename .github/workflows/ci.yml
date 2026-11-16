@@ -37,7 +37,7 @@ jobs:
       - name: Train model & execute continuous training pipeline
         env:
           PYTHONPATH: ${{ github.workspace }}
-        run: python -m src.train
+        run: python scripts/run_pipeline.py
 
       - name: Run test suite & verify quality gates
         env:
@@ -55,3 +55,6 @@ jobs:
             models/drift_baseline.json
             models/feature_importance.json
             models/champion_metadata.json
+            models/data_validation_report.json
+            models/slice_metrics.json
+            models/pipeline_run_manifest.json

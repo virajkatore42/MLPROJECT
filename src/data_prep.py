@@ -181,11 +181,21 @@ def load_and_clean(path: str | Path | None = None, include_v4: bool = False) -> 
         combined["brand"] = "Unknown"
         combined["car_model"] = "Other"
 
-    # Harmonize brand names
+    # Harmonize brand names and owner categories
     combined["brand"] = combined["brand"].replace({
         "Maruti Suzuki": "Maruti",
         "MINI": "Mini",
     })
+    owner_harmonize = {
+        "First": "First Owner",
+        "Second": "Second Owner",
+        "Third": "Third Owner",
+        "Fourth": "Fourth & Above Owner",
+        "4 or More": "Fourth & Above Owner",
+        "UnRegistered Car": "Test Drive Car",
+    }
+    if "owner" in combined.columns:
+        combined["owner"] = combined["owner"].replace(owner_harmonize)
 
     # Discretized price bracket target
     combined["price_bracket"] = combined["selling_price"].map(assign_price_bracket)

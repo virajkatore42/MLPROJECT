@@ -1,0 +1,21 @@
+{
+  "pipeline_name": "India_Auto_Valuation_Continuous_Pipeline",
+  "orchestrated_at": "2026-11-16T20:45:01.893353",
+  "stages": [
+    {
+      "stage": "DataOps_Validation_Gate",
+      "duration_seconds": 0.16,
+      "status": "PASSED",
+      "details": "7/7 rules satisfied (Lineage: 5babb492e291db9e)"
+    },
+    {
+      "stage": "Continuous_Training_CT",
+      "duration_seconds": 31.3,
+      "status": "PASSED",
+      "details": "Regressor + Classifier fitted with log-target transformation & MLflow tracking"
+    }
+  ],
+  "overall_status": "SUCCESS",
+  "total_execution_seconds": 31.45,
+  "completed_at": "2026-11-16T20:45:33.346641"
+}

@@ -1,5 +1,7 @@
 import json
 from pathlib import Path
+import numpy as np
+import pandas as pd
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,6 +11,8 @@ METRICS_PATH = ROOT / "models" / "metrics.json"
 DRIFT_PATH = ROOT / "models" / "drift_baseline.json"
 FEATURE_IMP_PATH = ROOT / "models" / "feature_importance.json"
 CHAMPION_PATH = ROOT / "models" / "champion_metadata.json"
+VALIDATION_PATH = ROOT / "models" / "data_validation_report.json"
+SLICE_PATH = ROOT / "models" / "slice_metrics.json"
 
 
 def test_dataset_exists():
@@ -37,6 +41,66 @@ def test_data_invariants():
     assert (df["vehicle_age"] >= 0).all()
     assert not df["selling_price"].isna().any()
     assert not df["km_per_year"].isna().any()
+
+
+def test_data_validation_report():
+    assert VALIDATION_PATH.exists(), "Validation report missing. Run python -m src.data_validation"
+    report = json.loads(VALIDATION_PATH.read_text(encoding="utf-8"))
+    assert report["status"] == "PASSED"
+    assert report["pass_rate_pct"] == 100.0
+    assert report["dataset_rows"] >= 5000
+
+
+def test_slice_metrics_and_fairness():
+    assert SLICE_PATH.exists(), "Slice metrics missing. Run python -m src.train"
+    report = json.loads(SLICE_PATH.read_text(encoding="utf-8"))
+    assert report["total_slices_evaluated"] >= 10
+    assert report["compliant_slices"] >= 10
+    # Assert electric vehicles slice is evaluated
+    ev_slices = [s for s in report["slices"] if s["slice_value"] == "Electric"]
+    assert len(ev_slices) == 1
+    assert ev_slices[0]["sla_status"] == "COMPLIANT"
+
+
+def test_training_serving_feature_parity():
+    """Verify engineer_features produces identical columns and derivations for single payload vs batch."""
+    from src.data_prep import engineer_features
+
+    single_payload = pd.DataFrame([{
+        "year": 2023,
+        "km_driven": 24000,
+        "brand": "Tata",
+        "car_model": "Nexon-EV",
+        "fuel": "Electric",
+        "seller_type": "Individual",
+        "transmission": "Automatic",
+        "owner": "First Owner",
+    }])
+
+    batch_payload = pd.concat([single_payload, single_payload], ignore_index=True)
+
+    single_eng = engineer_features(single_payload)
+    batch_eng = engineer_features(batch_payload)
+
+    assert single_eng["vehicle_age"].iloc[0] == batch_eng["vehicle_age"].iloc[0]
+    assert single_eng["km_per_year"].iloc[0] == batch_eng["km_per_year"].iloc[0]
+    assert single_eng["is_luxury"].iloc[0] == batch_eng["is_luxury"].iloc[0]
+
+
+def test_drift_psi_computation():
+    """Verify PSI behaves correctly: identical distributions yield PSI ~0; shifted yields PSI > 0.25."""
+    from src.drift import compute_psi
+
+    np.random.seed(42)
+    baseline = np.random.normal(50000, 10000, 1000)
+    identical = np.random.normal(50000, 10000, 1000)
+    shifted = np.random.normal(120000, 15000, 1000)
+
+    psi_stable = compute_psi(baseline, identical)
+    psi_drifted = compute_psi(baseline, shifted)
+
+    assert psi_stable < 0.10, f"Expected stable PSI < 0.10, got {psi_stable}"
+    assert psi_drifted > 0.25, f"Expected severe PSI > 0.25, got {psi_drifted}"
 
 
 def test_model_performance_gates():

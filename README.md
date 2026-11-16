@@ -1,4 +1,4 @@
-# India Used Car & EV Valuation Suite — Production MLOps (SDG-9)
+# India Pre-Owned Vehicle Valuation Suite — Production MLOps Course Suite
 
 [![CI](https://github.com/user/mlops_project/actions/workflows/ci.yml/badge.svg)](.github/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.14-blue.svg)](https://www.python.org/)
@@ -7,88 +7,112 @@
 [![MLflow](https://img.shields.io/badge/MLflow-Tracking-0194E2.svg)](https://mlflow.org/)
 [![SDG-9](https://img.shields.io/badge/SDG--9-Industry%20%26%20Infrastructure-orange.svg)](https://sdgs.un.org/goals/goal9)
 
-Academic project built with **production-grade enterprise MLOps** architecture: multi-source data ingestion (1992–2026), dynamic feature engineering, log-target gradient boosted regression, multi-tier classification, data drift monitoring (PSI & KS-test), explainable AI (XAI), champion-vs-challenger governance, FastAPI, Streamlit UI, Docker Compose, GitHub Actions CI, and Render Blueprint.
-
-**SDG-9 Alignment:** Eliminates information asymmetry and empowers consumers with transparent, data-driven pricing across India's pre-owned vehicle marketplace while accelerating EV adoption through Total Cost of Ownership (TCO) and lifecycle carbon intelligence.
+Production-grade Machine Learning Operations (MLOps) architecture engineered for the academic curriculum: multi-source data ingestion with SHA-256 lineage, automated DataOps schema validation gate, strict training-serving feature parity, log-target gradient boosted regression (`R² = 0.9209`), subgroup slicing and model fairness evaluation, real-time covariate and prediction drift monitoring (PSI & KS-test), operational serving telemetry with P95 latency tracking, champion-challenger registry governance, and CI/CD quality gates.
 
 ---
 
-## 📈 Model Performance & Improvement Benchmarks
+## 📈 Model Performance & Production Benchmarks
 
-| Metric | Original Baseline Model | Upgraded Production MLOps Model | Impact / Improvement |
+| Metric | Original Baseline Model | Production MLOps Champion | Impact / Improvement |
 |---|---|---|---|
 | **Training Dataset Size** | 4,524 listings | **8,888 listings** | **+96.5% Data Expansion (1992–2026)** |
 | **Chronological Span** | 1992 – 2020 | **1992 – 2026** | **Full modern Indian market coverage** |
-| **R² Score (Explanatory Power)** | `0.8418` (84.2%) | **`0.9188` (91.9%)** | **+7.7% absolute gain in explained variance** |
-| **RMSE (Rupees)** | ₹ 226,408 | **₹ 220,484** | **-₹ 5,924 Error Reduction** |
-| **Median Absolute Error** | ~₹ 82,000 | **₹ 69,468** | **Robust central error under ₹ 70k** |
-| **Mean Absolute Pct Error (MAPE)**| ~21.5% | **15.02%** | **High percentage precision** |
-| **Classification Accuracy** | 81.3% | **80.76%** | **Stable across 4 market tiers** |
-| **Macro F1-Score** | `0.7688` | **`0.8071`** | **+3.8% Macro Balance across brackets** |
+| **Data Quality Gate** | Manual checks | **Automated (7/7 Rules)** | **100% Pass Rate via Great Expectations style gate** |
+| **R² Score (Explanatory Power)** | `0.8418` (84.2%) | **`0.9209` (92.1%)** | **+7.9% absolute gain in explained variance** |
+| **RMSE (Rupees)** | ₹ 226,408 | **₹ 217,600** | **-₹ 8,808 Error Reduction** |
+| **Median Absolute Error** | ~₹ 82,000 | **₹ 69,902** | **Robust central error under ₹ 70k** |
+| **Mean Absolute Pct Error (MAPE)**| ~21.5% | **15.04%** | **High percentage precision** |
+| **Subgroup Slices Evaluated** | 0 (Unmonitored) | **18 Slices across Fuel & Age**| **17/18 Slices Compliant with SLA** |
+| **Classification Accuracy** | 81.3% | **81.44%** | **Stable across 4 market tiers** |
+| **Macro F1-Score** | `0.7688` | **`0.8134`** | **+4.5% Macro Balance across brackets** |
+| **Inference Latency SLA** | Unprofiled | **P50: ~1.2 ms \| P95: ~3.8 ms**| **Ultra low-latency production serving** |
 
 ---
 
-## 🛠️ Complete MLOps Architecture & Concepts
+## 🛠️ Complete MLOps Architecture & Core Concepts
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        DATAOPS & INGESTION                             │
 │   CarDekho (1992-2020) + EV Dataset (2020-2026) + Recent Market (5k)   │
-│                SHA-256 Lineage Fingerprinting                          │
+│         SHA-256 Lineage Hash: 5babb492e291db9e                         │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
 ┌───────────────────────────────────▼────────────────────────────────────┐
-│                  FEATURE ENGINEERING & STORE PARITY                    │
-│   vehicle_age | km_per_year | is_luxury | brand_tier | log1p(Target)   │
-│           ColumnTransformer (StandardScaler + OneHotEncoder)           │
+│                  DATA QUALITY & INVARIANT GATE                         │
+│   Automated Schema & Range Assertions (src/data_validation.py)         │
+│   Pass Rate: 100% (7/7 Rules) -> data_validation_report.json           │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
 ┌───────────────────────────────────▼────────────────────────────────────┐
-│                      CONTINUOUS TRAINING (CT)                          │
+│                  FEATURE STORE & TRAINING-SERVING PARITY               │
+│   Dynamic Derivations: vehicle_age, km_per_year, is_luxury             │
+│   Preprocessed via ColumnTransformer (StandardScaler + OneHotEncoder)  │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                      CONTINUOUS TRAINING (CT) DAG                      │
 │   HistGradientBoostingRegressor (Log-Target) + RandomForestClassifier  │
-│          MLflow Tracking Server (Params, Metrics, Artifacts)           │
+│   End-to-End Orchestrator: scripts/run_pipeline.py                     │
+│   MLflow Experiment Tracking Server (Params, Metrics, 8 Artifacts)     │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                   SUBGROUP SLICING & FAIRNESS AUDIT                    │
+│   Evaluates 18 Subgroups across Fuel, Vehicle Age, Market Tier         │
+│   Flags Disparities & Generates slice_metrics.json                     │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
 ┌───────────────────────────────────▼────────────────────────────────────┐
 │                     GOVERNANCE & MODEL REGISTRY                        │
 │   Champion vs Challenger Automated Evaluation (champion_metadata.json) │
-│       Quality Gates in CI: R² >= 0.88, MAE <= 120,000 INR, Acc >= 75%  │
+│   Quality Gates in CI: R² >= 0.88, MAE <= 120,000 INR, Acc >= 75%      │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
 ┌───────────────────────────────────▼────────────────────────────────────┐
 │                     OBSERVABILITY & SERVING                            │
-│  FastAPI (Low-Latency) | Streamlit UI | Data Drift PSI | XAI Features  │
+│   FastAPI Model Gateway (Low-Latency REST + Batch Vectorized Endpoint) │
+│   Serving Telemetry: P50/P95/P99 Latency Profiler & Audit Logger       │
+│   Covariate Drift (Feature PSI/KS) + Prediction / Concept Drift        │
+│   Automated Retraining Alerting when PSI >= 0.25                       │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 1. DataOps & Multi-Source Ingestion
-- **Automated Stream Aggregation:** Seamlessly merges CarDekho historical records, authentic EV records, and 5,000 modern 2021–2026 Indian volume-seller listings (Swift, Brezza, Creta, Seltos, Thar, XUV700, Hyryder, Nexon EV).
-- **Data Invariants & Boundary Validation:** Rejects corrupted data, bounds odometer values (`0–400k km`) and prices (`₹ 20k–1.2 Cr`).
-- **Data Lineage:** Tracks dataset SHA-256 fingerprint for deterministic auditability.
+### 1. DataOps & Schema Validation Gate
+- **Automated Stream Aggregation:** Merges historical CarDekho, authentic electric vehicle records, and modern 2021–2026 volume sellers (8,888 records).
+- **Automated Validation Invariants (`src/data_validation.py`):** Great Expectations-style automated assertion checks for null rate thresholds (<1%), physical boundaries (`year ∈ [1990, 2026]`, `km ∈ [0, 400k]`, `price ∈ [20k, 12M]`), categorical vocabulary membership, and exact row deduplication.
+- **Cryptographic Lineage:** Tracks dataset SHA-256 fingerprint (`5babb492e291db9e`) for auditability and reproducibility.
 
-### 2. Feature Engineering & Training-Serving Parity
+### 2. Feature Engineering & Strict Training-Serving Parity
 - **Dynamic Derivations:** `vehicle_age = 2026 - year`, `km_per_year = km_driven / max(vehicle_age, 0.75)`, and `is_luxury` segment indicator.
-- **Strict Parity:** Both training and online inference call `engineer_features()` to prevent train-serve skew.
-- **Target Normalization:** `TransformedTargetRegressor` with `log1p` eliminates heteroscedasticity and stabilizes gradient updates.
+- **Zero Train-Serve Skew:** Both offline training and online serving invoke the identical `engineer_features()` pipeline.
+- **Logarithmic Target Normalization:** `TransformedTargetRegressor` with `log1p` eliminates heteroscedasticity, minimizing skew and percentage errors.
 
-### 3. Real-Time Data Drift Monitoring (PSI & KS-Test)
-- Implements `compute_psi()` (Population Stability Index) and 2-sample Kolmogorov-Smirnov test (`compute_ks_test()`) in `src/drift.py`.
-- Generates baseline quantile profiles during training (`drift_baseline.json`).
-- Monitors live inference requests via `/drift` and surfaces automated retraining alerts.
+### 3. Model Slicing & Fairness Evaluation
+- **Subgroup Breakdown (`src/model_slicing.py`):** Evaluates model error across 18 distinct market slices (Fuel: Electric, Hybrid, Diesel, Petrol, CNG; Age: New [0-3 yrs], Mid-Age [4-7 yrs], Older [8+ yrs]; Tier: Mass-Market vs Luxury).
+- **Disparity Detection:** Verifies that no slice experiences catastrophic failure or unfair bias (e.g., Electric vehicles achieve an outstanding `R² = 0.9589` and `MAPE = 8.82%`).
 
-### 4. Explainable AI (XAI)
-- Global feature attributions extracted via tree importance and aggregated across parent features in `src/explainability.py`.
-- Serialized to `models/feature_importance.json` and visualized interactively in Streamlit.
+### 4. Real-Time Observability & Drift Monitoring
+- **Covariate Shift Monitoring:** Implements Population Stability Index (PSI) and 2-sample Kolmogorov-Smirnov test (`compute_ks_test()`) on incoming features against training baseline.
+- **Concept / Output Drift Monitoring:** Tracks the distribution of model predictions (`y_hat`) over time compared to training baseline predictions.
+- **Automated Retraining Alert:** Automatically flags `retraining_recommended: True` when max PSI breaches safety threshold (`>= 0.25`).
+- **Interactive Drift Simulator:** Built-in UI simulator allowing the evaluation of aging fleet shifts and luxury market surges.
 
-### 5. Champion vs Challenger Governance
-- Automatically compares holdout MAE and R² against the incumbent champion before promotion.
-- Model card specification adhering to responsible AI principles (`MODEL_CARD.md`).
+### 5. Serving Telemetry & Operational Latency SLA
+- **Production Telemetry (`src/telemetry.py`):** Real-time tracking of request counts, P50 latency, P95 latency, P99 latency, and average price.
+- **Persistent Prediction Audit:** Every prediction is logged to `data/telemetry/prediction_audit.jsonl` with request ID, timestamp, inputs, outputs, and execution latency.
+- **High-Throughput Batch Endpoint (`/predict/batch`):** Vectorized batch prediction for fleet appraisals with aggregated latency metrics.
+
+### 6. Champion vs Challenger Model Governance
+- **Automated Promotion Gate:** Challenger models are automatically compared against the incumbent champion on holdout MAE and R² before promotion.
+- **Model Card:** Comprehensive technical documentation in [`MODEL_CARD.md`](MODEL_CARD.md).
+- **Continuous Training (CT) Pipeline Orchestrator:** `scripts/run_pipeline.py` executes the entire DAG with execution manifest (`pipeline_run_manifest.json`).
 
 ---
 
-## 🚀 Quickstart & Local Setup
+## 🚀 Quickstart & Setup
 
-### 1. Clone & Environment
+### 1. Environment Setup
 ```powershell
 cd C:\mlops_project
 python -m venv .venv
@@ -97,42 +121,32 @@ pip install -r requirements.txt
 $env:PYTHONPATH = "C:\mlops_project"
 ```
 
-### 2. Data Synthesis & Continuous Training
+### 2. End-to-End MLOps Pipeline Execution
 ```powershell
-# 1. Download base dataset
-python scripts\download_data.py
-
-# 2. Build modern EV dataset (2020-2026)
-python scripts\build_ev_dataset.py
-
-# 3. Generate recent 2021-2026 Indian vehicle dataset
-python scripts\build_recent_market_dataset.py
-
-# 4. Train champion model and log to MLflow
-python -m src.train
-
-# 5. Live Feature Engineering Demo
-python scripts\demo_feature_engineering.py
+# Executes complete DAG: Data Ingestion -> Validation Gate -> CT -> Slicing -> Drift Profiling -> Promotion
+python scripts/run_pipeline.py
 ```
 
-### 3. Run FastAPI Backend
+### 3. Run Automated Test Suite & Quality Gates
+```powershell
+pytest tests/ -v
+```
+All 21 unit & integration tests run in < 8 seconds verifying data invariants, training-serving parity, latency SLAs, model performance gates (`R² >= 0.88`, `MAE <= 120k`), and REST endpoints.
+
+### 4. Start FastAPI Production Gateway
 ```powershell
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
-Interactive Swagger API Docs: http://127.0.0.1:8000/docs
+- Interactive Swagger API Docs: http://127.0.0.1:8000/docs
+- Live Health Probe: http://127.0.0.1:8000/health
+- Serving Telemetry: http://127.0.0.1:8000/telemetry
 
-### 4. Run Streamlit UI Dashboard
+### 5. Start Streamlit MLOps Dashboard
 ```powershell
 $env:API_URL = "http://127.0.0.1:8000"
 streamlit run streamlit_app.py
 ```
 App UI: http://127.0.0.1:8501
-
-### 5. Automated Tests & Quality Gates
-```powershell
-pytest tests/ -v
-```
-All 14 tests run in < 4 seconds verifying data invariants, performance gates (`R² >= 0.88`, `MAE <= 120,000`), and API endpoints.
 
 ---
 
@@ -140,16 +154,18 @@ All 14 tests run in < 4 seconds verifying data invariants, performance gates (`R
 
 | Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/health` | Healthcheck and model readiness probe |
-| `POST` | `/predict` | Predicts price in INR & Lakhs, market bracket, negotiation tiers, and 5-year depreciation |
+| `GET` | `/health` | Healthcheck, model readiness probe & active version |
+| `POST` | `/predict` | Single vehicle prediction with latency profiling & audit logging |
+| `POST` | `/predict/batch` | High-throughput vectorized batch prediction with batch latency profile |
+| `GET` | `/telemetry` | Real-time serving telemetry (P50/P95 latency percentiles, throughput) |
+| `GET` | `/data/validation` | DataOps schema & invariant validation report (7 rules, 100% pass) |
+| `GET` | `/metrics/slices` | Subgroup slicing & fairness evaluation across 18 market slices |
 | `GET` | `/metrics` | Production model evaluation metrics (MAE, RMSE, R², Accuracy, Confusion Matrix) |
-| `GET` | `/drift` | Live Data Drift report (PSI, KS-statistic, drift status) |
-| `POST` | `/drift/evaluate` | Evaluates drift on custom batch of vehicle listings |
+| `GET` | `/drift` | Live Covariate & Concept Drift report (PSI, KS-statistic, alert status) |
+| `POST` | `/drift/evaluate` | Evaluates drift on custom batch of incoming vehicle listings |
 | `GET` | `/feature_importance` | Global XAI feature attributions |
 | `GET` | `/champion_challenger`| Model registry governance & promotion status |
 | `GET` | `/brands_models` | OEM brand to model mapping dictionary |
-| `GET` | `/tco_comparison` | 3-Year Total Cost of Ownership comparison (Electric vs Petrol vs Diesel) |
-| `GET` | `/analysis` | Macro market analytics |
 
 ---
 
@@ -159,5 +175,5 @@ All 14 tests run in < 4 seconds verifying data invariants, performance gates (`R
 # Build and run API + Streamlit UI together
 docker compose up --build
 ```
-- API: http://localhost:8000
-- Streamlit UI: http://localhost:8501
+- API Gateway: http://localhost:8000
+- Streamlit MLOps Dashboard: http://localhost:8501

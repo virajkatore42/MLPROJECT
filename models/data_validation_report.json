@@ -1,0 +1,61 @@
+{
+  "status": "PASSED",
+  "evaluated_at": "2026-11-16T20:45:02.221497",
+  "dataset_rows": 8888,
+  "dataset_lineage_hash": "5babb492e291db9e",
+  "total_checks": 7,
+  "passed_checks": 7,
+  "failed_checks": 0,
+  "pass_rate_pct": 100.0,
+  "checks": [
+    {
+      "check": "dataset_minimum_sample_size",
+      "category": "Volume",
+      "status": "PASSED",
+      "details": "Total rows: 8,888 (threshold >= 1,000)",
+      "passed": true
+    },
+    {
+      "check": "required_columns_presence",
+      "category": "Schema",
+      "status": "PASSED",
+      "details": "Missing columns: None",
+      "passed": true
+    },
+    {
+      "check": "null_rate_threshold",
+      "category": "Completeness",
+      "status": "PASSED",
+      "details": "Columns with nulls: Zero missing values (100% complete)",
+      "passed": true
+    },
+    {
+      "check": "numeric_boundary_invariants",
+      "category": "Data Integrity",
+      "status": "PASSED",
+      "details": "Violations: All numeric values conform to physical boundaries",
+      "passed": true
+    },
+    {
+      "check": "categorical_domain_integrity",
+      "category": "Schema",
+      "status": "PASSED",
+      "details": "Violations: All categorical labels match authorized vocabulary",
+      "passed": true
+    },
+    {
+      "check": "exact_row_deduplication",
+      "category": "Uniqueness",
+      "status": "PASSED",
+      "details": "Found 0 duplicate listings across feature space",
+      "passed": true
+    },
+    {
+      "check": "target_positive_invariant",
+      "category": "Target Health",
+      "status": "PASSED",
+      "details": "Non-positive target rows: 0",
+      "passed": true
+    }
+  ]
+}
