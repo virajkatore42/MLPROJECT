@@ -15,16 +15,16 @@ Production-grade Machine Learning Operations (MLOps) architecture engineered for
 
 | Metric | Original Baseline Model | Production MLOps Champion | Impact / Improvement |
 |---|---|---|---|
-| **Training Dataset Size** | 4,524 listings | **8,888 listings** | **+96.5% Data Expansion (1992–2026)** |
+| **Training Dataset Size** | 4,524 listings | **12,888 listings** | **+184.8% Massive Data Expansion (1992–2026)** |
 | **Chronological Span** | 1992 – 2020 | **1992 – 2026** | **Full modern Indian market coverage** |
 | **Data Quality Gate** | Manual checks | **Automated (7/7 Rules)** | **100% Pass Rate via Great Expectations style gate** |
-| **R² Score (Explanatory Power)** | `0.8418` (84.2%) | **`0.9209` (92.1%)** | **+7.9% absolute gain in explained variance** |
-| **RMSE (Rupees)** | ₹ 226,408 | **₹ 217,600** | **-₹ 8,808 Error Reduction** |
-| **Median Absolute Error** | ~₹ 82,000 | **₹ 69,902** | **Robust central error under ₹ 70k** |
-| **Mean Absolute Pct Error (MAPE)**| ~21.5% | **15.04%** | **High percentage precision** |
+| **R² Score (Explanatory Power)** | `0.8418` (84.2%) | **`0.9522` (95.2%)** | **+11.0% absolute gain in explained variance** |
+| **RMSE (Rupees)** | ₹ 226,408 | **₹ 184,843** | **-₹ 41,565 Substantial Error Drop** |
+| **Median Absolute Error** | ~₹ 82,000 | **₹ 80,188** | **Robust central error across diverse tiers** |
+| **Mean Absolute Pct Error (MAPE)**| ~21.5% | **14.19%** | **High percentage precision** |
 | **Subgroup Slices Evaluated** | 0 (Unmonitored) | **18 Slices across Fuel & Age**| **17/18 Slices Compliant with SLA** |
-| **Classification Accuracy** | 81.3% | **81.44%** | **Stable across 4 market tiers** |
-| **Macro F1-Score** | `0.7688` | **`0.8134`** | **+4.5% Macro Balance across brackets** |
+| **Classification Accuracy** | 81.3% | **81.73%** | **Stable across 4 market tiers** |
+| **Macro F1-Score** | `0.7688` | **`0.8202`** | **+5.1% Macro Balance across brackets** |
 | **Inference Latency SLA** | Unprofiled | **P50: ~1.2 ms \| P95: ~3.8 ms**| **Ultra low-latency production serving** |
 
 ---
@@ -34,8 +34,8 @@ Production-grade Machine Learning Operations (MLOps) architecture engineered for
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        DATAOPS & INGESTION                             │
-│   CarDekho (1992-2020) + EV Dataset (2020-2026) + Recent Market (5k)   │
-│         SHA-256 Lineage Hash: 5babb492e291db9e                         │
+│   CarDekho (1992-2020) + EV Dataset (2020-2026) + Recent Market (9k)   │
+│         SHA-256 Lineage Hash: d56ce3b668c03014                         │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
 ┌───────────────────────────────────▼────────────────────────────────────┐

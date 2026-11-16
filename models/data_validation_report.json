@@ -1,8 +1,8 @@
 {
   "status": "PASSED",
-  "evaluated_at": "2026-11-16T20:45:02.221497",
-  "dataset_rows": 8888,
-  "dataset_lineage_hash": "5babb492e291db9e",
+  "evaluated_at": "2026-11-16T21:24:08.063204",
+  "dataset_rows": 12888,
+  "dataset_lineage_hash": "d56ce3b668c03014",
   "total_checks": 7,
   "passed_checks": 7,
   "failed_checks": 0,
@@ -12,7 +12,7 @@
       "check": "dataset_minimum_sample_size",
       "category": "Volume",
       "status": "PASSED",
-      "details": "Total rows: 8,888 (threshold >= 1,000)",
+      "details": "Total rows: 12,888 (threshold >= 1,000)",
       "passed": true
     },
     {

@@ -1,10 +1,10 @@
 {
   "model_version": "2.2.0-ct-20261116",
   "governance_status": "PROMOTED_REPLACING_PREVIOUS",
-  "promoted_at": "2026-11-16T20:45:30.175856",
-  "mae_inr": 106114.60711275238,
-  "r2_score": 0.9208804166459321,
-  "accuracy": 0.8143982002249719,
+  "promoted_at": "2026-11-16T21:24:25.838028",
+  "mae_inr": 113704.31786979128,
+  "r2_score": 0.9521572073739725,
+  "accuracy": 0.817300232738557,
   "previous_mae_inr": 106114.60711275238,
   "previous_r2_score": 0.9208804166459321,
   "sdg_impact": "SDG-9 Fair Used-Car Valuation & Resilient Resale Infrastructure"

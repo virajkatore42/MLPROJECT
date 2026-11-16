@@ -236,8 +236,8 @@ def generate_recent_indian_cars(num_records: int = 3000, random_state: int = 42)
 
 def main():
     DATA_RAW.mkdir(parents=True, exist_ok=True)
-    print(f"Generating 5,000 recent 2021-2026 Indian used vehicle records...")
-    df = generate_recent_indian_cars(num_records=5000, random_state=42)
+    print(f"Generating 9,000 recent 2021-2026 Indian used vehicle records...")
+    df = generate_recent_indian_cars(num_records=9000, random_state=42)
     df.to_csv(OUT_PATH, index=False)
     print(f"Saved {len(df)} records to {OUT_PATH}")
     print("\nSummary by Year:")

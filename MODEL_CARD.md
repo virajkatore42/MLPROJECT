@@ -23,8 +23,8 @@ The dataset integrates multi-stream data ingestion across **1992 through 2026**:
 1. **Historical CarDekho Dataset:** 4,340 historical listings (1992–2020).
 2. **Indian Electric Vehicle (EV) Dataset:** 1,000 authentic and augmented EV listings (Tata Nexon-EV, Tiago-EV, MG ZS-EV, Mahindra XUV400, Hyundai Ioniq 5, Kia EV6).
 3. **Modern 2021–2026 Market Dataset:** 5,000 modern listings covering high-volume market leaders (Swift, Brezza, Creta, Seltos, Thar, XUV700, Hyryder).
-- **Total Ingested Listings:** 8,888 verified records.
-- **Lineage Fingerprint:** Cryptographic SHA-256 hash `5babb492e291db9e`.
+- **Total Ingested Listings:** 12,888 verified records.
+- **Lineage Fingerprint:** Cryptographic SHA-256 hash `d56ce3b668c03014`.
 - **DataOps Quality Gate (`src/data_validation.py`):** 100% Passed (7/7 Great Expectations-style invariant rules satisfied including null rate threshold, numeric physical boundaries, categorical allowable sets, exact row deduplication, and target positive invariants).
 
 ---
@@ -51,17 +51,17 @@ Strict training-serving parity is enforced via a serialized scikit-learn `Pipeli
 ## 5. Performance Metrics & Quality Gates (Holdout Test Set)
 
 ### Regression Performance (Selling Price in INR)
-- **R² Score (Coefficient of Determination):** `0.9209` (92.1% variance explained)
-- **Mean Absolute Error (MAE):** `₹ 106,114.61`
-- **Median Absolute Error:** `₹ 69,901.97`
-- **Root Mean Squared Error (RMSE):** `₹ 217,600.27`
-- **Mean Absolute Percentage Error (MAPE):** `15.04%`
+- **R² Score (Coefficient of Determination):** `0.9522` (95.2% variance explained)
+- **Mean Absolute Error (MAE):** `₹ 113,704.32`
+- **Median Absolute Error:** `₹ 80,188.45`
+- **Root Mean Squared Error (RMSE):** `₹ 184,843.02`
+- **Mean Absolute Percentage Error (MAPE):** `14.19%`
 
 ### Classification Performance (4 Market Brackets)
-- **Accuracy:** `81.44%`
-- **Precision (Macro):** `0.812`
-- **Recall (Macro):** `0.816`
-- **Macro F1-Score:** `0.8134`
+- **Accuracy:** `81.73%`
+- **Precision (Macro):** `0.852`
+- **Recall (Macro):** `0.800`
+- **Macro F1-Score:** `0.8202`
 
 ---
 

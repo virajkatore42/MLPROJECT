@@ -1,37 +1,37 @@
 {
-  "mae_inr": 106114.60711275238,
-  "median_ae_inr": 69901.96740434691,
-  "rmse_inr": 217600.27221392634,
-  "r2": 0.9208804166459321,
-  "mape_pct": 15.042279561635203,
-  "accuracy": 0.8143982002249719,
-  "precision_macro": 0.8452231439501935,
-  "recall_macro": 0.7916901694238885,
-  "f1_macro": 0.8134463039738238,
+  "mae_inr": 113704.31786979128,
+  "median_ae_inr": 80188.44605682626,
+  "rmse_inr": 184843.01959401253,
+  "r2": 0.9521572073739725,
+  "mape_pct": 14.194723461533911,
+  "accuracy": 0.817300232738557,
+  "precision_macro": 0.8518853778181766,
+  "recall_macro": 0.79959808276261,
+  "f1_macro": 0.8202485869768179,
   "confusion_matrix": [
     [
-      232,
-      58,
+      237,
+      55,
       0,
       0
     ],
     [
-      36,
-      632,
-      67,
-      0
+      40,
+      863,
+      129,
+      1
     ],
     [
       1,
-      96,
-      435,
-      9
+      139,
+      759,
+      6
     ],
     [
-      0,
-      4,
-      59,
-      149
+      1,
+      5,
+      94,
+      248
     ]
   ],
   "bracket_labels": [
@@ -40,8 +40,8 @@
     "Premium",
     "Luxury"
   ],
-  "train_rows": 7110,
-  "test_rows": 1778,
+  "train_rows": 10310,
+  "test_rows": 2578,
   "target": "selling_price",
   "classification_target": "price_bracket",
   "features": [
@@ -57,11 +57,11 @@
     "transmission",
     "owner"
   ],
-  "data_lineage_hash": "5babb492e291db9e",
+  "data_lineage_hash": "d56ce3b668c03014",
   "data_validation_status": "PASSED",
   "compliant_slices": 17,
   "total_slices": 18,
-  "trained_timestamp": "2026-11-16T20:45:30.206150",
+  "trained_timestamp": "2026-11-16T21:24:25.862979",
   "model_version": "2.2.0-ct-20261116",
   "champion_status": "PROMOTED_REPLACING_PREVIOUS",
   "sdg_goal": "SDG-9 Industry, Innovation and Infrastructure"
