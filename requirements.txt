@@ -1,4 +1,4 @@
-# Docker image uses Python 3.11 (pinned below). Local Python 3.14: pip install -r requirements-local.txt
+# Production dependencies
 fastapi>=0.115.0
 uvicorn[standard]>=0.34.0
 pydantic>=2.10.0
@@ -6,6 +6,7 @@ pydantic-settings>=2.7.0
 pandas>=2.2.0
 numpy>=2.0.0
 scikit-learn>=1.6.0
+scipy>=1.13.0
 joblib>=1.4.0
 python-multipart>=0.0.20
 streamlit>=1.40.0
