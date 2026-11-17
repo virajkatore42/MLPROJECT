@@ -23,7 +23,12 @@ ROOT = Path(__file__).resolve().parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from src.analytics import calculate_negotiation_tiers, forecast_depreciation
+from src.analytics import (
+    calculate_negotiation_tiers,
+    calculate_value_enhancements,
+    forecast_depreciation,
+    simulate_selling_timing,
+)
 from src.config import (
     CATEGORICAL_FEATURES,
     CHAMPION_METADATA_PATH,
@@ -74,24 +79,24 @@ OWNERS = [
     "Test Drive Car",
 ]
 
-# Local High-Resolution Vector Assets (100% Offline-Resilient)
+# Verified Real Photographic Vehicle Assets
 IMAGES_DIR = ROOT / "data" / "images"
-LOCAL_CAR_SVGS = {
-    "Swift": IMAGES_DIR / "swift.svg",
-    "Nexon-EV": IMAGES_DIR / "nexon_ev.svg",
-    "Punch-EV": IMAGES_DIR / "nexon_ev.svg",
-    "Tiago-EV": IMAGES_DIR / "nexon_ev.svg",
-    "Creta": IMAGES_DIR / "creta.svg",
-    "Venue": IMAGES_DIR / "creta.svg",
-    "Thar": IMAGES_DIR / "thar.svg",
-    "Scorpio": IMAGES_DIR / "thar.svg",
-    "Scorpio-N": IMAGES_DIR / "thar.svg",
-    "Urban-Cruiser-Hyryder": IMAGES_DIR / "hyryder.svg",
-    "Grand-Vitara": IMAGES_DIR / "hyryder.svg",
-    "3-Series": IMAGES_DIR / "bmw.svg",
-    "5-Series": IMAGES_DIR / "bmw.svg",
-    "C-Class": IMAGES_DIR / "bmw.svg",
-    "E-Class": IMAGES_DIR / "bmw.svg",
+LOCAL_CAR_IMAGES = {
+    "Swift": IMAGES_DIR / "swift.jpg",
+    "Nexon-EV": IMAGES_DIR / "nexon_ev.jpg",
+    "Punch-EV": IMAGES_DIR / "nexon_ev.jpg",
+    "Tiago-EV": IMAGES_DIR / "nexon_ev.jpg",
+    "Creta": IMAGES_DIR / "creta.jpg",
+    "Venue": IMAGES_DIR / "creta.jpg",
+    "Thar": IMAGES_DIR / "thar.jpg",
+    "Scorpio": IMAGES_DIR / "thar.jpg",
+    "Scorpio-N": IMAGES_DIR / "thar.jpg",
+    "Urban-Cruiser-Hyryder": IMAGES_DIR / "hyryder.jpg",
+    "Grand-Vitara": IMAGES_DIR / "hyryder.jpg",
+    "3-Series": IMAGES_DIR / "bmw.jpg",
+    "5-Series": IMAGES_DIR / "bmw.jpg",
+    "C-Class": IMAGES_DIR / "bmw.jpg",
+    "E-Class": IMAGES_DIR / "bmw.jpg",
 }
 
 FEATURED_CARS = {
@@ -104,7 +109,7 @@ FEATURED_CARS = {
         "transmission": "Manual",
         "seller_type": "Individual",
         "owner": "First Owner",
-        "svg": "swift.svg",
+        "image": "swift.jpg",
         "badge": "Sport Hatchback · High Resale",
     },
     "⚡ Tata Nexon EV": {
@@ -116,7 +121,7 @@ FEATURED_CARS = {
         "transmission": "Automatic",
         "seller_type": "Individual",
         "owner": "First Owner",
-        "svg": "nexon_ev.svg",
+        "image": "nexon_ev.jpg",
         "badge": "100% Clean Electric SUV",
     },
     "🚙 Hyundai Creta": {
@@ -128,7 +133,7 @@ FEATURED_CARS = {
         "transmission": "Manual",
         "seller_type": "Dealer",
         "owner": "First Owner",
-        "svg": "creta.svg",
+        "image": "creta.jpg",
         "badge": "Executive Compact SUV",
     },
     "🛡️ Mahindra Thar": {
@@ -140,7 +145,7 @@ FEATURED_CARS = {
         "transmission": "Manual",
         "seller_type": "Individual",
         "owner": "First Owner",
-        "svg": "thar.svg",
+        "image": "thar.jpg",
         "badge": "Iconic 4x4 Offroader",
     },
     "🌿 Toyota Hyryder": {
@@ -152,7 +157,7 @@ FEATURED_CARS = {
         "transmission": "Automatic",
         "seller_type": "Individual",
         "owner": "First Owner",
-        "svg": "hyryder.svg",
+        "image": "hyryder.jpg",
         "badge": "Self-Charging Hybrid",
     },
     "👑 BMW 3-Series": {
@@ -164,7 +169,7 @@ FEATURED_CARS = {
         "transmission": "Automatic",
         "seller_type": "Dealer",
         "owner": "First Owner",
-        "svg": "bmw.svg",
+        "image": "bmw.jpg",
         "badge": "Executive Luxury Sedan",
     },
 }
@@ -362,16 +367,16 @@ def _predict_local(payload: dict) -> dict | None:
 
 
 def get_car_image_path(car_model: str, fuel: str) -> Path:
-    """Returns local verified vector graphics for the car."""
-    if car_model in LOCAL_CAR_SVGS and LOCAL_CAR_SVGS[car_model].exists():
-        return LOCAL_CAR_SVGS[car_model]
-    if fuel.lower() == "electric" and (IMAGES_DIR / "nexon_ev.svg").exists():
-        return IMAGES_DIR / "nexon_ev.svg"
-    if fuel.lower() == "hybrid" and (IMAGES_DIR / "hyryder.svg").exists():
-        return IMAGES_DIR / "hyryder.svg"
-    if (IMAGES_DIR / "creta.svg").exists():
-        return IMAGES_DIR / "creta.svg"
-    return IMAGES_DIR / "swift.svg"
+    """Returns local verified real photographic image for the car."""
+    if car_model in LOCAL_CAR_IMAGES and LOCAL_CAR_IMAGES[car_model].exists():
+        return LOCAL_CAR_IMAGES[car_model]
+    if fuel.lower() == "electric" and (IMAGES_DIR / "nexon_ev.jpg").exists():
+        return IMAGES_DIR / "nexon_ev.jpg"
+    if fuel.lower() == "hybrid" and (IMAGES_DIR / "hyryder.jpg").exists():
+        return IMAGES_DIR / "hyryder.jpg"
+    if (IMAGES_DIR / "creta.jpg").exists():
+        return IMAGES_DIR / "creta.jpg"
+    return IMAGES_DIR / "swift.jpg"
 
 
 # ----------------- PAGE CONFIG -----------------
@@ -592,10 +597,10 @@ with tab_val:
     p_cols = st.columns(len(FEATURED_CARS))
     for idx, (label, p_data) in enumerate(FEATURED_CARS.items()):
         with p_cols[idx]:
-            # Show thumbnail SVG
-            svg_file = IMAGES_DIR / p_data["svg"]
-            if svg_file.exists():
-                st.image(str(svg_file), use_container_width=True)
+            # Show real photo thumbnail
+            img_file = IMAGES_DIR / p_data.get("image", "swift.jpg")
+            if img_file.exists():
+                st.image(str(img_file), use_container_width=True)
             if st.button(label, use_container_width=True, key=f"btn_p_{idx}"):
                 st.session_state["sel_brand"] = p_data["brand"]
                 st.session_state["sel_model"] = p_data["car_model"]
@@ -779,6 +784,138 @@ with tab_val:
                 .properties(height=240)
             )
             st.altair_chart(dep_chart, use_container_width=True)
+
+        # ----------------- PRICE MAXIMIZER: SMART MODIFICATIONS & VALUE BOOST -----------------
+        st.markdown("---")
+        st.markdown("#### 💡 Price Booster: Maximize Resale Value with High-ROI Prep & Minor Mods")
+        st.caption("Pre-sale reconditioning and documentation upgrades that commercial platforms (Cars24/Spinny) use to negotiate higher prices:")
+
+        base_val = float(res["predicted_price_inr"])
+        car_age = CURRENT_YEAR - int(payload.get("year", 2022))
+        enhancements = calculate_value_enhancements(
+            base_price=base_val,
+            fuel=str(payload.get("fuel", "Petrol")),
+            km_driven=int(payload.get("km_driven", 30000)),
+            vehicle_age=car_age,
+        )
+
+        col_e1, col_e2 = st.columns([1.35, 1.0])
+
+        with col_e1:
+            st.markdown("##### 🛠️ Select Modifications / Pre-Sale Enhancements:")
+            selected_enhancements = []
+            for enh in enhancements:
+                is_default = enh["id"] in ["oem_service_record", "ceramic_coating"]
+                chk = st.checkbox(
+                    f"**{enh['title']}**\n\n*(Cost: ₹{enh['cost_inr']:,.0f} → Value Boost: +₹{enh['boost_inr']:,.0f})*",
+                    value=is_default,
+                    help=enh["description"],
+                    key=f"chk_enh_{enh['id']}",
+                )
+                if chk:
+                    selected_enhancements.append(enh)
+
+        with col_e2:
+            st.markdown("##### 📈 Projected Return on Investment (ROI)")
+            total_boost = sum(e["boost_inr"] for e in selected_enhancements)
+            total_cost = sum(e["cost_inr"] for e in selected_enhancements)
+            net_profit = total_boost - total_cost
+            enhanced_price = base_val + total_boost
+
+            st.markdown(
+                f"""
+                <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid #10b981; border-radius: 12px; padding: 18px; margin-bottom: 12px;">
+                    <div style="font-size: 0.8rem; text-transform: uppercase; color: #10b981; font-weight: 700;">Potential Enhanced Valuation</div>
+                    <div style="font-size: 2.1rem; font-weight: 900; color: #ffffff; margin: 4px 0;">₹ {enhanced_price/100000:.2f} Lakhs</div>
+                    <div style="font-size: 0.88rem; color: #94a3b8;">
+                        Baseline: ₹ {base_val/100000:.2f} L &nbsp;|&nbsp; <span style="color: #10b981; font-weight: bold;">+₹ {total_boost:,.0f} Value Boost</span>
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 6px;">
+                        <span>Total Prep Investment:</span>
+                        <span style="font-weight: 700; color: #f59e0b;">₹ {total_cost:,.0f}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 800;">
+                        <span>Net Profit in Your Pocket:</span>
+                        <span style="color: #00d2ff;">+₹ {net_profit:,.0f}</span>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            if total_cost > 0:
+                roi_mult = round(total_boost / total_cost, 1)
+                st.info(f"💰 **ROI Multiplier:** Every ₹1 spent generates **₹{roi_mult}x** in higher resale bargaining power!")
+
+        # ----------------- MARKET TIMING STRATEGY: SELL NOW VS. SELL LATE -----------------
+        st.markdown("---")
+        st.markdown("#### ⏳ Market Timing Strategy: Sell Today vs. Sell Late Simulator")
+        st.caption("Simulate whether holding your car is profitable (e.g. during upcoming festive demand peaks) or if depreciation and mileage wear erode value:")
+
+        col_t1, col_t2 = st.columns([1.0, 1.25])
+
+        with col_t1:
+            st.markdown("##### ⏱️ Configure Holding Scenario:")
+            months_input = st.slider("Holding Period (Months to Wait)", 1, 12, 3, key="slider_months_hold")
+            season_choices = [
+                ("normal", "Standard Normal Season (Steady Demand)"),
+                ("festive", "🎉 Festive Season Surge (Diwali / Navratri +5.5%)"),
+                ("year_end", "📅 Year-End Clearance Window (December -3.5%)"),
+            ]
+            season_input = st.selectbox(
+                "Anticipated Selling Window",
+                season_choices,
+                format_func=lambda x: x[1],
+                key="sel_season_timing",
+            )[0]
+            km_rate = st.number_input("Estimated Monthly Driving (km/month)", 200, 3000, 1000, step=100, key="num_km_usage")
+
+        sim_res = simulate_selling_timing(
+            base_price=base_val,
+            vehicle_age=car_age,
+            km_driven=int(payload.get("km_driven", 30000)),
+            fuel=str(payload.get("fuel", "Petrol")),
+            months_to_hold=months_input,
+            season_type=season_input,
+            km_per_month=km_rate,
+        )
+
+        with col_t2:
+            st.markdown("##### 🎯 Strategic Timing Verdict")
+            is_positive = sim_res["delta_inr"] > 0
+            box_border = "#10b981" if is_positive else ("#f59e0b" if sim_res["delta_inr"] >= -30000 else "#ef4444")
+            box_badge_bg = "rgba(16, 185, 129, 0.15)" if is_positive else ("rgba(245, 158, 11, 0.15)" if sim_res["delta_inr"] >= -30000 else "rgba(239, 68, 68, 0.15)")
+            delta_prefix = "+" if is_positive else ""
+            st.markdown(
+                f"""
+                <div style="background: rgba(15, 23, 42, 0.7); border: 2px solid {box_border}; border-radius: 14px; padding: 18px;">
+                    <div style="display: inline-block; padding: 4px 10px; border-radius: 9999px; background: {box_badge_bg}; color: {box_border}; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">
+                        {sim_res['recommendation']}
+                    </div>
+                    <div style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 8px;">
+                        {sim_res['verdict_title']}
+                    </div>
+                    <div style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 14px;">
+                        {sim_res['rationale']}
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 10px;">
+                        <div>
+                            <div style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase;">Current Price Today:</div>
+                            <div style="font-size: 1.1rem; font-weight: 700; color: #ffffff;">₹ {sim_res['current_price_inr']/100000:.2f} Lakhs</div>
+                            <div style="font-size: 0.7rem; color: #64748b;">Odometer: {payload.get('km_driven', 30000):,} km</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase;">In {months_input} Months:</div>
+                            <div style="font-size: 1.1rem; font-weight: 700; color: {'#10b981' if is_positive else '#f87171'};">
+                                ₹ {sim_res['projected_price_lakh']:.2f} Lakhs ({delta_prefix}₹ {sim_res['delta_inr']:,.0f})
+                            </div>
+                            <div style="font-size: 0.7rem; color: #64748b;">Future Odo: {sim_res['future_odometer']:,} km</div>
+                        </div>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
         # ----------------- TEACHER / EVALUATOR CONSOLE (COLLAPSED EXPANDER) -----------------
         st.markdown("---")

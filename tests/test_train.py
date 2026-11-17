@@ -123,3 +123,23 @@ def test_governance_artifacts_exist():
     feat_data = json.loads(FEATURE_IMP_PATH.read_text(encoding="utf-8"))
     assert len(feat_data) >= 5
     assert sum(f["importance_pct"] for f in feat_data) > 90.0
+
+
+def test_analytics_enhancements_and_timing():
+    from src.analytics import calculate_value_enhancements, simulate_selling_timing
+
+    # 1. Test Value Enhancements
+    enh = calculate_value_enhancements(1_200_000, fuel="Electric", km_driven=30000, vehicle_age=3)
+    assert len(enh) >= 5
+    assert all("boost_inr" in item and "cost_inr" in item for item in enh)
+    assert any("Battery" in item["title"] for item in enh)
+
+    # 2. Test Timing Simulation
+    sim_cliff = simulate_selling_timing(1_000_000, vehicle_age=4, km_driven=46000, fuel="Petrol", months_to_hold=6)
+    assert sim_cliff["crossed_cliff"] is True
+    assert sim_cliff["recommendation"] == "SELL BEFORE MILESTONE CLIFF"
+
+    sim_festive = simulate_selling_timing(1_000_000, vehicle_age=2, km_driven=15000, fuel="Petrol", months_to_hold=2, season_type="festive")
+    assert sim_festive["recommendation"] == "HOLD FOR FESTIVE PEAK"
+    assert sim_festive["delta_inr"] > 0
+
