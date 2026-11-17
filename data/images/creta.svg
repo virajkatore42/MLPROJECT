@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_creta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="car_silver" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="50%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="240" rx="16" fill="url(#bg_creta)"/>
+  <ellipse cx="300" cy="205" rx="240" ry="14" fill="#000" opacity="0.5"/>
+  <!-- Muscular SUV Profile -->
+  <path d="M 85,160 L 95,130 Q 110,115 145,110 L 220,90 Q 270,62 385,62 L 450,72 Q 495,95 520,128 L 532,155 Q 536,168 518,172 L 452,172 A 38,38 0 0,0 376,172 L 210,172 A 38,38 0 0,0 134,172 L 88,172 Z" fill="url(#car_silver)"/>
+  <!-- Roof Rails -->
+  <line x1="260" y1="56" x2="420" y2="65" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+  <!-- Glass -->
+  <path d="M 230,95 L 375,68 L 440,78 L 480,118 L 230,118 Z" fill="#38bdf8" fill-opacity="0.6"/>
+  <line x1="360" y1="70" x2="360" y2="118" stroke="#334155" stroke-width="4"/>
+  <!-- Wheels -->
+  <circle cx="172" cy="172" r="34" fill="#0f172a" stroke="#cbd5e1" stroke-width="5"/>
+  <circle cx="172" cy="172" r="16" fill="#94a3b8"/>
+  <circle cx="414" cy="172" r="34" fill="#0f172a" stroke="#cbd5e1" stroke-width="5"/>
+  <circle cx="414" cy="172" r="16" fill="#94a3b8"/>
+  <!-- Headlights -->
+  <polygon points="515,130 530,145 520,152 505,142" fill="#fef08a" opacity="0.9"/>
+  <!-- Badging -->
+  <text x="30" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1f5f9">HYUNDAI CRETA</text>
+  <text x="30" y="68" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Executive Compact SUV · India's Volume Leader</text>
+  <rect x="470" y="25" width="100" height="26" rx="13" fill="rgba(148, 163, 184, 0.2)" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="42" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e2e8f0" text-anchor="middle">DIESEL / PETROL</text>
+</svg>
